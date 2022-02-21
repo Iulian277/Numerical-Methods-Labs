@@ -4,7 +4,7 @@
 %       After that, solves the lower and upper triangular systems
 %       Returns the L, U(=L') matrices and the solution of the initial system
 % [USES]
-%       utils/isPositiveDefinite.m
+%       utils/is_positive_definite.m
 %       utils/SST.m
 %       utils/SIT.m
 
@@ -17,7 +17,7 @@ function [L U x] = cholesky(A, b)
   U = zeros(n);
   
   % Check if the input matrix A is symmetric and positive definite
-  if issymmetric(A) == 0 || isPositiveDefinite(A) == 0
+  if issymmetric(A) == 0 || is_positive_definite(A) == 0
     disp('The matrix A is not symmetric and positive definite!');
     L = NaN;
     U = NaN;

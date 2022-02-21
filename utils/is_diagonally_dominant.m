@@ -2,7 +2,7 @@
 %       This function is used for checking if a matrix A is diagonally dominant
 %       Returns 1 if true, 0 otherwise
 
-function [is_diag_dom] = isDiagonallyDominant(A)
+function [is_diag_dom] = is_diagonally_dominant(A)
   % Grab the dimensions
   [n n] = size(A);
   

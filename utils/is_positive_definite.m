@@ -2,9 +2,9 @@
 %       This function is used for checking if a matrix A is positive definite
 %       Returns 1 if true, 0 otherwise
 % [USES]
-%       utils/isDiagonallyDominant.m
+%       utils/is_diagonally_dominant.m
 
-function [is_pos_def] = isPositiveDefinite(A)
+function [is_pos_def] = is_positive_definite(A)
   % Grab the dimensions
   [n n] = size(A);
   
@@ -15,7 +15,7 @@ function [is_pos_def] = isPositiveDefinite(A)
   % - it is diagonally dominant
   % - A(i, i) > 0
   % - A is symmetrical
-  if isDiagonallyDominant(A) == 1 && diag(A) > 0 && issymmetric(A)
+  if is_diagonally_dominant(A) == 1 && diag(A) > 0 && issymmetric(A)
     return;
   endif
   
