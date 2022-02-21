@@ -1,15 +1,15 @@
 % [ABOUT]
 %       This is a tester function for QR decomposition,
-%       using Givens rotation
+%       using Householder transformation
 % [USES]
-%       qr/givens.m 
+%       qr/householder.m 
 
-function [] = givens_test()
+function [] = householder_test()
     n = 3;
     A = rand(n, n);
     b = rand(n, 1);
 
-    [Q R x_alg] = givens_(A, b);
+    [Q R x_alg] = householder(A, b);
     
     x_alg;
     x_true  = A \ b;
