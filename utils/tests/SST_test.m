@@ -1,4 +1,4 @@
-% [INFO]
+% [ABOUT]
 %       This is a tester function for 
 %       solving an upper triangular system (U * x = b)
 %

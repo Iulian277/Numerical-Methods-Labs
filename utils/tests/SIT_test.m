@@ -1,4 +1,4 @@
-% [INFO]
+% [ABOUT]
 %       This is a tester function for 
 %       solving a lower triangular system (L * x = b) 
 % [USES]

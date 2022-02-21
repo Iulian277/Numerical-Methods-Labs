@@ -1,7 +1,7 @@
-% [USAGE]
-%       This function solves an upper triangular system (U * x = b)
+% [ABOUT]
+%       This function solves an upper triangular system (A * x = b)
 % [INFO]
-%       If the matrix is not upper triangular, we cannot solve the system
+%       If the matrix (A) is not upper triangular, we cannot solve the system
 %       So, we need to check if all the elements under the main diagonal are 0
 %
 %       tril(A, -1) - returns what is strictly under the main diagonal

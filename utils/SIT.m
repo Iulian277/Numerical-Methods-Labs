@@ -1,7 +1,7 @@
-% [USAGE]
-%       This function solves a lower triangular system (L * x = b)
+% [ABOUT]
+%       This function solves a lower triangular system (A * x = b)
 % [INFO]
-%       If the matrix is not lower triangular, we cannot solve the system
+%       If the matrix (A) is not lower triangular, we cannot solve the system
 %       So, we need to check if all the elements above the main diagonal are 0
 %
 %       triu(A, 1)  - returns what is strictly above the main diagonal
