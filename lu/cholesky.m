@@ -16,7 +16,7 @@ function [L U x] = cholesky(A, b)
   L = zeros(n);
   U = zeros(n);
   
-  % Check if input matrix A is symmetric and positive definite
+  % Check if the input matrix A is symmetric and positive definite
   if issymmetric(A) == 0 || isPositiveDefinite(A) == 0
     disp('The matrix A is not symmetric and positive definite!');
     L = NaN;

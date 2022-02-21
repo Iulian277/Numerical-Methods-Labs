@@ -10,9 +10,6 @@ function [] = cholesky_test()
   A = A * A';
   A = n * eye(n);
   b = rand(n, 1);
-
-  % A = [25 15 -5; 15 18 0; -5 0 11];
-  % b = [0; 1; 2];
   
   [L U x_alg] = cholesky(A, b);
   
