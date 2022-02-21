@@ -4,7 +4,7 @@
 %       Returns the L, U matrices and the solution of the initial system
 % [USES] 
 %       utils/SST.m
-%       utils/SIT.m 
+%       utils/SIT.m
 
 function [L U x] = crout(A, b)
   % Grab the dimensions
