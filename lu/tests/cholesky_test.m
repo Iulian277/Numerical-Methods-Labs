@@ -6,9 +6,9 @@
 function [] = cholesky_test()
   n = 3;
   % Generate symmetric and positive definite matrix A
-  A = rand(n, n)
+  A = rand(n, n);
   A = A * A';
-  A = n * eye(n);
+  A = A + n * eye(n)
   b = rand(n, 1);
   
   [L U x_alg] = cholesky(A, b);
