@@ -1,14 +1,16 @@
 % [ABOUT]
 %       This function is used for solving a linear system (A * x = b),
-%       using Gaussian elimination.
+%       using Gaussian elimination with partial pivoting.
 %       Returns the solution of the initial system (x)
+% [INFO]
+%       max(matrix)  - returns first maximum el for each col and its row idx
+%       max(matrix') - returns first maximum el for each row and its col idx
 % [NOTE]
 %       This script works only for non-singular matrices
-%       All the diagonal elements (pivots) must not be zero
 % [USES] 
 %       utils/SST.m
 
-function [x] = gaussian_elimination(A, b)
+function [x] = GE_partial_pivoting(A, b)
     % Number of rows (equations)
     n = length(b);
     
@@ -18,6 +20,18 @@ function [x] = gaussian_elimination(A, b)
     
     % For each row
     for p = 1 : (n - 1)
+        % Find the abs maximum from A(p:n, p) and use it as a pivot
+        [pivot pivot_line] = max(abs(A_ext(p : n, p)));
+        
+        % pivot_line is the relative index to the current position
+        % Make pivot_line global index in matrix A_ext
+        pivot_line = pivot_line + p - 1;
+        
+        % Swap the lines (move pivot on diagonal position)
+        temp_line = A_ext(p, :);
+        A_ext(p, :) = A_ext(pivot_line, :);
+        A_ext(pivot_line, :) = temp_line;
+        
         % Check if the pivot is 0
         if abs(A_ext(p, p)) < eps
             disp('One of the pivots is 0!');

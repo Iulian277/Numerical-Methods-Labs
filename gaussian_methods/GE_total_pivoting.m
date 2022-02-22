@@ -1,14 +1,16 @@
 % [ABOUT]
 %       This function is used for solving a linear system (A * x = b),
-%       using Gaussian elimination.
+%       using Gaussian elimination with total pivoting
 %       Returns the solution of the initial system (x)
+% [INFO]
+%       max(matrix)  - returns first maximum el for each col and its row idx
+%       max(matrix') - returns first maximum el for each row and its col idx
 % [NOTE]
 %       This script works only for non-singular matrices
-%       All the diagonal elements (pivots) must not be zero
 % [USES] 
 %       utils/SST.m
 
-function [x] = gaussian_elimination(A, b)
+function [x] = GE_total_pivoting(A, b)
     % Number of rows (equations)
     n = length(b);
     
@@ -16,8 +18,32 @@ function [x] = gaussian_elimination(A, b)
     % so we do less operations (do all operations at once)
     A_ext = [A b];
     
+    % Build the permutation vector
+    % This algorithm swap rows and columns
+    perm = [1 : n];
+    
     % For each row
     for p = 1 : (n - 1)
+        % Find the abs max el from submatrix
+        % A_ext(p:n, p:n) and use it as a pivot
+        pivot = max(max(abs(A_ext(p : n, p : n))));
+        [pivot_line pivot_column] = find(abs(A_ext)==pivot);
+        
+        % Swap the lines (move pivot on diagonal position)
+        temp_line = A_ext(p, :);
+        A_ext(p, :) = A_ext(pivot_line, :);
+        A_ext(pivot_line, :) = temp_line;
+        
+        % Swap the columns (move pivot on diagonal position)
+        temp_column = A_ext(:, p);
+        A_ext(:, p) = A_ext(:, pivot_column);
+        A_ext(:, pivot_column) = temp_column;
+        
+        % Update the permutation vector
+        temp_perm = perm(p);
+        perm(p) = perm(pivot_column);
+        perm(pivot_column) = temp_perm;
+        
         % Check if the pivot is 0
         if abs(A_ext(p, p)) < eps
             disp('One of the pivots is 0!');
@@ -42,5 +68,8 @@ function [x] = gaussian_elimination(A, b)
     
     % A is now an upper triangular matrix
     x = SST(A, b);
+    
+    % Apply the permutation vector to the solution
+    x = x(perm);
     
 endfunction
