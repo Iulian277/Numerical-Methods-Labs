@@ -3,6 +3,8 @@
 %       using Givens rotation. After that, solves the upper triangular system
 %       Returns the Q, R matrices and the solution of the initial system
 %       Q - orthogonal, R - upper triangular
+% [NOTE]
+%       This script works only for square matrices A
 % [USES] 
 %       utils/SST.m
 

@@ -6,12 +6,12 @@
 %       utils/SST.m 
 
 function [] = SST_test()
-  n = 3;
-  U = triu(rand(n, n))
-  b = rand(n, 1)
+    n = 3;
+    U = triu(rand(n, n))
+    b = rand(n, 1)
 
-  x_true = U \ b
-  x_alg  = SST(U, b)
-  
-  err = norm(x_true - x_alg)
+    x_true = U \ b
+    x_alg  = SST(U, b)
+    
+    err = norm(x_true - x_alg)
 endfunction
