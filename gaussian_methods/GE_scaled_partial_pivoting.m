@@ -25,7 +25,7 @@ function [x] = GE_scaled_partial_pivoting(A, b)
         
         % Find the abs maximum scaled to its factor
         % from A(p:n, p) and use it as a pivot
-        [pivot pivot_line] = max(A(:, p) ./ s_factors);
+        [pivot pivot_line] = max(A(p : n, p) ./ s_factors);
         
         % pivot_line is the relative index to the current position
         % Make pivot_line global index in matrix A_ext
