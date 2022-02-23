@@ -26,8 +26,11 @@ function [x] = GE_total_pivoting(A, b)
     for p = 1 : (n - 1)
         % Find the abs max el from submatrix
         % A_ext(p:n, p:n) and use it as a pivot
-        pivot = max(max(abs(A_ext(p : n, p : n))));
-        [pivot_line pivot_column] = find(abs(A_ext)==pivot);
+        [pivot, pivot_line] = max(abs(A_ext(p : n, p : n)));
+        [pivot, pivot_column] = max(pivot);
+        pivot_line = pivot_line + p - 1;
+        pivot_line = pivot_line(pivot_column);
+        pivot_column = pivot_column + p - 1;
         
         % Swap the lines (move pivot on diagonal position)
         temp_line = A_ext(p, :);
