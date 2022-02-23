@@ -1,10 +1,10 @@
 % [ABOUT]
 %       This is a tester function for solving a linear system,
-%       using the Jacobi iterative method
+%       using the Gauss-Seidel iterative method
 % [USES]
-%       iterative_methods/jacobi.m
+%       iterative_methods/gauss_seidel.m
 
-function [] = jacobi_test()
+function [] = gauss_seidel_test()
     A = [7 2 -4; 3 6 2; 2 -5 8];
     b = [7 15 28]';
     
@@ -15,7 +15,7 @@ function [] = jacobi_test()
     % Maximum number of iterations
     max_iter = 1e3;
     
-    [x_alg steps] = jacobi(A, b, x0, tol, max_iter);
+    [x_alg steps] = gauss_seidel(A, b, x0, tol, max_iter);
     
     steps
     x_alg;
