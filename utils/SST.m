@@ -29,7 +29,7 @@ function [x] = SST(A, b)
     x = zeros(n, 1);
 
     % Calculate x(i) backwards
-    for i = n: -1 : 1
+    for i = n : -1 : 1
         sum_of_xs = A(i, (i + 1) : n) * x((i + 1) : n);
         x(i) = (b(i) - sum_of_xs) / A(i, i);
     endfor
