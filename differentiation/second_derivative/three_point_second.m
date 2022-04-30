@@ -12,6 +12,6 @@ function [d2f] = three_point_second(f, x0)
     % Step (x1 = x0 + h)
     h = 0.01;
     
-    % Apply the formula 
+    % Apply the formula
     d2f = (f(x0 - h) - 2 * f(x0) + f(x0 + h)) / (h^2);
 endfunction
