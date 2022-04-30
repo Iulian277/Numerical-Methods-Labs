@@ -3,7 +3,7 @@
 %       using the Singular Value Decomposition technique
 % [INPUT] 
 %       `image`               - Path to the input RGB image
-%       `compression_factor`  - Factor of compression (e.g.: 2)
+%       `compression_factor`  - Factor of compression (e.g: 2)
 % [OUTPUT]
 %       Compressed RGB image
 % [USAGE]
