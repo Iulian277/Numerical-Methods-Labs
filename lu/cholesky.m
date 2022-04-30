@@ -25,7 +25,6 @@ function [L U x] = cholesky(A, b)
         return;
     endif
   
-  
     % For each row
     for j = 1 : n
         % Compute the diagonal elements

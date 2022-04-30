@@ -6,7 +6,7 @@
 %       Q - orthogonal, R - upper triangular
 % [NOTE]
 %       This script works only for square matrices A
-% [USES] 
+% [USES]
 %       utils/SST.m
 
 function [Q R x] = householder(A, b)
@@ -32,14 +32,15 @@ function [Q R x] = householder(A, b)
         vp((p + 1) : m) = A((p + 1) : m, p);
         
         % Calculate the p-th step reflector
-        Hp = eye(n) - 2 * vp * vp' / (vp' * vp);
+        Hp = eye(m) - 2 * vp * vp' / (vp' * vp);
         % norm(vp) = sqrt(vp' * vp) => norm(vp)^2 = vp' * vp
         
+        p
         % Remove elements under the p-th pivot in A
-        A = Hp * A;
+        A = Hp * A
         
         % Update the final Householder matrix
-        H = Hp * H;
+        H = Hp * H
     endfor
         
     % The orthogonal matrix (Q) is the transpose
@@ -54,6 +55,6 @@ function [Q R x] = householder(A, b)
     % Q * R * x = b
     % Multiply in the left Q^-1 = Q' (Q orthogonal)
     % R * x = Q' * b
-    x = SST(R, Q' * b); 
+    x = SST(R, Q' * b);
     
 endfunction

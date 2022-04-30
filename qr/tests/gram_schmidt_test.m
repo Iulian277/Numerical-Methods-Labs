@@ -7,8 +7,10 @@
 function [] = gram_schmidt_test()
     n = 3;      % Columns: x, y, z - number of unknown variables
     m = n + 1;  % Rows   : number of equations (relations)
-    A = rand(m, n);
-    b = rand(m, 1);
+    % A = rand(m, n);
+    % b = rand(m, 1);
+    A = [3 -2 3; 0 3 5; 4 4 4]
+    b = rand(3, 1);
 
     [Q R x_alg] = gram_schmidt(A, b);
     

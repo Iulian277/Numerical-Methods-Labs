@@ -19,7 +19,7 @@ function [x] = GE_total_pivoting(A, b)
     A_ext = [A b];
     
     % Build the permutation vector
-    % This algorithm swap rows and columns
+    % This algorithm swap columns (and rows)
     perm = [1 : n];
     
     % For each row

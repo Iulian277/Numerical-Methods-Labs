@@ -7,9 +7,16 @@
 % [USES] 
 %       utils/SST.m
 
-function [Q R x] = gram_schmidt(A, b)
+function [Q R x] = gram_schmidt(A, b = NaN)
     % Grab the dimensions
     [m n] = size(A);
+    
+    % This allows us to generate only the QR decomposition,
+    % without needing to provied a vector `b` for solving a system of eq
+    if b == NaN
+        b = rand(m, 1);
+    endif
+    
     
     % Initialize result matrices
     Q = [];

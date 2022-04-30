@@ -25,7 +25,7 @@ function [Q R x] = givens_(A, b)
           % Initialize the current Givens matrix for this step
           G = eye(m);
           
-          % Calculate cos and sin
+          % Calculate cos and sin (for each step)
           rho = sqrt(A(k, k)^2 + A(l, k)^2);
           c =   A(k, k) / rho;
           s = - A(l, k) / rho;

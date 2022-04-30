@@ -8,8 +8,7 @@
 %       abs(matrix) - returns the same matrix, but each element in module
 %       max(matrix) - returns a list of every column's max
 %       max(list)   - returns the maximum from the list
-%
-% [NOTE] 
+% [NOTE]
 %       There is a function called `istriu(A)` which returns 1 if A is an
 %       upper triangular matrix but it doesn't catch the e-16 errors
 %       which should be ignored

@@ -6,8 +6,10 @@
 
 function [] = givens_test()
     n = 3;
-    A = rand(n, n);
-    b = rand(n, 1);
+    % A = rand(n, n);
+    % b = rand(n, 1);
+    A = [3 -2 3; 0 3 5; 4 4 4]
+    b = rand(3, 1);
 
     [Q R x_alg] = givens_(A, b);
     

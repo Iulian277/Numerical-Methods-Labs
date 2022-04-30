@@ -31,7 +31,7 @@ function [x step] = gauss_seidel(A, b, x0, tol, max_iter)
             % Compute the `curr_sum` a_ij * xj_curr, j=(i+1):n
             curr_sum = A(i, i + 1 : n) * x_curr(i + 1 : n);
            
-            % Compute x_{k+1}
+            % Compute x_{p+1}
             x_next(i) = b(i) - next_sum - curr_sum;
             x_next(i) = x_next(i) / A(i, i);
         endfor

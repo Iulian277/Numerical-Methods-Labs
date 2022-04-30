@@ -18,8 +18,8 @@ function [x step] = jacobi(A, b, x0, tol, max_iter)
     [m n] = size(A);
     
     % Set current approximation
-    x_curr = x0;
-    x_next = zeros(n, 1);
+    x_curr = x0;          % x_p
+    x_next = zeros(n, 1); % x_{p+1}
     
     % Iterate to the maximum number of iterations
     for step = 1 : max_iter

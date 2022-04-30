@@ -29,12 +29,12 @@ function [x step] = sor(A, b, x0, tol, max_iter, w)
             % Compute the `curr_sum` a_ij * xj_curr, j=(i+1):n
             curr_sum = A(i, i + 1 : n) * x_curr(i + 1 : n);
            
-            % Compute x_{k+1} (Gauss-Seidel solution)
+            % Compute x_{p+1} (Gauss-Seidel solution)
             x_next(i) = b(i) - next_sum - curr_sum;
             x_next(i) = x_next(i) / A(i, i);
             
             % Introduce the relaxation parameter
-            x_next(i) = x_next(i) * w + x_curr(i) * (1 - w);
+            x_next(i) = w * x_next(i) + (1 - w) * x_curr(i);
         endfor
         
         % Check if we reached the solution
