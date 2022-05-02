@@ -39,16 +39,12 @@ function [x step] = bisection_method(f, a, b, tol, max_iter)
             return;
         endif
         
-        % New x_root (used only when using the `relative error`)
-        % x_new = a + (b - a) / 2;
-        
         % Check if we found the root
         % Or the bisection method reached convergence limit
         if abs(feval(f, x)) < tol && abs(b - a) < tol
             return;
         endif
-        % Alternatively, we can compute the relative error
-        % abs((x_new - x) / x_new)
+        
     endfor
     
 endfunction
