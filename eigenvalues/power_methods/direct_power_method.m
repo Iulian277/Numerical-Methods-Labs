@@ -29,7 +29,7 @@ function [lambda x steps] = direct_power_method(A, x0, tol, max_iter)
           break;
         endif
         
-         % Move to the next step
+        % Move to the next step
         prev_x = x;
         steps++;
     endfor

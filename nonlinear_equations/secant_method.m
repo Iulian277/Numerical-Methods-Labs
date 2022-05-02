@@ -37,16 +37,12 @@ function [x step] = secant_method(f, a, b, tol, max_iter)
             return;
         endif
         
-        % New x_root (used only when using the `relative error`)
-        % x_new = a - feval(f, a) * (b - a) / (feval(f, b) - feval(f, a));
-        
         % Check if we found the root
         % Or the bisection method reached convergence limit
         if abs(feval(f, x)) < tol && abs(b - a) < tol
             return;
         endif
-        % Alternatively, we can compute the `relative error`
-        % abs((x_new - x) / x_new)
+        
     endfor
     
 endfunction

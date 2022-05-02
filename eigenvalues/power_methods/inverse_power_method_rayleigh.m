@@ -1,6 +1,6 @@
 % [ABOUT]
 %       This function is used for calculating the smallest eigenvalue
-%       and the characteristic vector, using an accelerated variation of the
+%       and the characteristic vector, using an accelerated version of the
 %       Inverse Power Method, using the Rayleigh quotient
 % [INPUT] 
 %       `A`        - Input matrix

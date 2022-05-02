@@ -27,6 +27,5 @@ function [] = bisection_method_test()
     % plot([-10 10], [0 0]); % Ox
     % plot([x_true x_true], [-20 100]); % x_true
     % hold off;
-   
- 
+    
 endfunction
