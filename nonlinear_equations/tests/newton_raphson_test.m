@@ -11,7 +11,7 @@ function [] = newton_raphson_test()
     % Initial approximation of the root
     x0 = 2;
     % Tolerance
-    tol = 1e-10;
+    tol = 1e-5;
     % Maximum number of iterations
     max_iter = 1e3;    
     

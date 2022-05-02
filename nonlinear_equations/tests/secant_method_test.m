@@ -2,20 +2,17 @@
 %       This is a tester function for solving a 
 %       non-linear equation f(x) = 0, using the Secant method
 % [USES]
-%       nonlinear_equations/tests/func_handler.m
 %       nonlinear_equations/secant_method.m
 
 function [] = secant_method_test()
-    % Input function (pointer to fct)
-    f = @func_handler;
-    % Another way to declare the function (anomymous)
-    % f = @(x) x.^2 - 5;
+    % Input function
+    f = @(x) x.^2 - 5;
     
     % Interval limits
     a = 2;
     b = 3;
     % Tolerance
-    tol = 1e-10;
+    tol = 1e-5;
     % Maximum number of iterations
     max_iter = 1e3;    
     
