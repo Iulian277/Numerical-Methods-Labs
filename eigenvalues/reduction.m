@@ -1,7 +1,7 @@
 % [ABOUT]
 %       This function is used for reducing a matrix `A`
-%         -> If A is not symmetric, then `A_mod` will be `upper Hessenberg`
-%         -> If A is     symmetric, then `A_mod` will be `tridiagonal`
+%         -> If A is not symmetric, then `A` will reduced to `upper Hessenberg`
+%         -> If A is     symmetric, then `A` will reduced to `tridiagonal`
 %       For each column of A (except the last one)
 %         - Make zeros on the p-th column under the    (p + 1) element
 %         - Make zeros on the p-th row to the right of (p + 1) element

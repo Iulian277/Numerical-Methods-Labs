@@ -32,7 +32,7 @@ function [lambda x steps] = inverse_power_method_rayleigh(A, alpha, tol, max_ite
     
     % We need to solve x = inv(A - alpha * eye(n)) * prev_x
     % Iterate to the maximum number of iterations
-    for step = 1 : max_iter
+    for steps = 1 : max_iter
         % Update the eigenvector (and normalize it)
         y = Q' * prev_x;
         x = SST(R, y);
@@ -48,7 +48,6 @@ function [lambda x steps] = inverse_power_method_rayleigh(A, alpha, tol, max_ite
         
         % Move to the next step
         prev_x = x;
-        steps++;
         
         % Use the Rayleigh quotient if the matrix is symmetric
         if A == A'

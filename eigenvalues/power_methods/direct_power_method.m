@@ -16,7 +16,7 @@ function [lambda x steps] = direct_power_method(A, x0, tol, max_iter)
     steps = 0;
     
     % Iterate to the maximum number of iterations
-    for step = 1 : max_iter
+    for steps = 1 : max_iter
         % Update the eigenvector (and normalize it)
         x = A * prev_x;
         x = x / norm(x);
@@ -31,7 +31,6 @@ function [lambda x steps] = direct_power_method(A, x0, tol, max_iter)
         
         % Move to the next step
         prev_x = x;
-        steps++;
     endfor
 
 endfunction

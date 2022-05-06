@@ -22,7 +22,7 @@ function [lambda x steps] = inverse_power_method(A, x0, tol, max_iter)
     
     % We need to solve x = inv(A) * prev_x <=> A * x = prev_x
     % Iterate to the maximum number of iterations
-    for step = 1 : max_iter
+    for steps = 1 : max_iter
         % Update the eigenvector (and normalize it)
         y = Q' * prev_x;
         x = SST(R, y);
@@ -36,9 +36,8 @@ function [lambda x steps] = inverse_power_method(A, x0, tol, max_iter)
           break;
         endif
         
-         % Move to the next step
+        % Move to the next step
         prev_x = x;
-        steps++;
     endfor
 
 endfunction
