@@ -26,7 +26,7 @@ function [eigenvalues steps] = QR_alg(A, tol, max_iter)
     % plot_binarized_mat(A_curr);
     % pause(5);
     
-    % QR on the `initial matrix` vs `reducted matrix`
+    % QR on the `initial matrix` vs `reduced matrix`
     A_curr = A;
     
     % Sanity check - Martix should be symmetric
