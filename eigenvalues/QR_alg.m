@@ -17,15 +17,16 @@ function [eigenvalues steps] = QR_alg(A, tol, max_iter)
     % Grab the dimensions
     [n m] = size(A);
     
-    % Reduce the matrix `A` to tridiagonal form
+    % Plot the initial matrix
     plot_binarized_mat(A);
     pause(5);
     
+    % Reduce the matrix `A`
     % A_curr = reduction(A);
     % plot_binarized_mat(A_curr);
     % pause(5);
     
-    % QR on the original matrix vs reduction first
+    % QR on the `initial matrix` vs `reducted matrix`
     A_curr = A;
     
     % Sanity check - Martix should be symmetric
