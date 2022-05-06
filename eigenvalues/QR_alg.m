@@ -11,11 +11,23 @@
 %       This script works only for symmetric matrices A
 %       If the matrix is asymmetric, then at the end of the algorithm,
 %       the matrix will have the Schur form (it will have complex eigenvalues)
+%       and we need to extract those complex eigenvalues from 2x2 blocks
 
 function [eigenvalues steps] = QR_alg(A, tol, max_iter)
     % Grab the dimensions
     [n m] = size(A);
-
+    
+    % Reduce the matrix `A` to tridiagonal form
+    plot_binarized_mat(A);
+    pause(5);
+    
+    % A_curr = reduction(A);
+    % plot_binarized_mat(A_curr);
+    % pause(5);
+    
+    % QR on the original matrix vs reduction first
+    A_curr = A;
+    
     % Sanity check - Martix should be symmetric
     if ~issymmetric(A, eps)
         disp('The input matrix `A` should be symmetric!');
@@ -24,10 +36,11 @@ function [eigenvalues steps] = QR_alg(A, tol, max_iter)
         return;
     endif
     
-    % Reduce the matrix `A` to tridiagonal form
-    A_curr = reduction(A);
-    
     for steps = 1 : max_iter
+        % Plot the binarized matrix
+        plot_binarized_mat(A_curr);
+        pause(0.01);
+        
         % Decompose the matrix `A`
         [Q R] = qr(A_curr);
         
