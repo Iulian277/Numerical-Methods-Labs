@@ -18,16 +18,16 @@ function [eigenvalues steps] = QR_alg(A, tol, max_iter)
     [n m] = size(A);
     
     % Plot the initial matrix
-    plot_binarized_mat(A);
-    pause(5);
+    % plot_binarized_mat(A);
+    % pause(5);
     
     % Reduce the matrix `A`
-    % A_curr = reduction(A);
+    A_curr = reduction(A);
     % plot_binarized_mat(A_curr);
     % pause(5);
     
     % QR on the `initial matrix` vs `reduced matrix`
-    A_curr = A;
+    % A_curr = A;
     
     % Sanity check - Martix should be symmetric
     if ~issymmetric(A, eps)
@@ -39,15 +39,15 @@ function [eigenvalues steps] = QR_alg(A, tol, max_iter)
     
     for steps = 1 : max_iter
         % Plot the binarized matrix
-        plot_binarized_mat(A_curr);
-        pause(0.01);
+        % plot_binarized_mat(A_curr);
+        % pause(0.01);
         
         % Decompose the matrix `A`
         [Q R] = qr(A_curr);
         
         % Update the matrix `A`
-        % Q * R  = A_curr => R = Q' * A_curr
-        % A_next = R * Q  => A_next = Q' * A_curr * Q (similarity transformation)
+        % Q * R  = A_curr => R = Q' * A_curr => R = Q^-1 * A_curr
+        % A_next = R * Q  => A_next = Q^-1 * A_curr * Q (similarity transf)
         A_next = R * Q;
         
         % Check if we reached the solution

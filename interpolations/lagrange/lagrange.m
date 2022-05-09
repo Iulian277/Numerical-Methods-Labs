@@ -14,7 +14,7 @@ function [y0] = lagrange(x, y, x0)
     % Calculate Lagrange's multiplier
     L = ones(length(x), 1);
     
-    % Calculare Lagrange's polynomial
+    % Calculate Lagrange's polynomial
     for i = 1 : length(x)
         % Calculate the Lagrange multiplier
         for j = 1 : length(x)

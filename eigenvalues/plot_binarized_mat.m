@@ -18,8 +18,8 @@ function [] = plot_binarized_mat(A, tol = 1e-3)
     for i = 1 : m
         for j = 1 : n
             if bin(i, j) == 1
-               x = [x n - i];
-               y = [y j];  
+               x = [x i];
+               y = [y n - j];
             endif
         endfor
     endfor

@@ -16,11 +16,13 @@ function [A_mod] = reduction(A)
     
     % Initialize reduced output matrix
     A_mod = A;
+    % plot_binarized_mat(A);
+    % pause(5);
 
     for p = 1 : min(m - 1, n) - 1
         % Plot binarized matrix
-        plot_binarized_mat(A_mod);
-        pause(0.01);
+        % plot_binarized_mat(A_mod);
+        % pause(0.01);
         
         % Initialize Householder vector
         vp = zeros(m, 1);
