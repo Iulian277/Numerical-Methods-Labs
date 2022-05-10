@@ -29,7 +29,7 @@ function [eigenvalues steps] = QR_eig_shift(A, tol, max_iter)
     i = 1;
 
     for steps = 1 : max_iter
-        % Matrix `E` stores the coefficients of an characteristic polynomial
+        % Matrix `E` stores the coefficients of a characteristic polynomial
         % of degree 2 (it stores the lower-right corner 2x2 block from A) 
         E = [1
             -A(n, n)-A(n-1, n-1)
