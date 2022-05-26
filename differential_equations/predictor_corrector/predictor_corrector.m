@@ -27,7 +27,7 @@ function [y] = predictor_corrector(f, y0, a, b, n)
     % Step
     h = (b - a) / n;
 
-    % Generare puncte echidistante in [a, b]
+    % Generate equidistant points in [a, b]
     for i = 0 : n
         t(i + 1)= a + i * h;
     endfor
