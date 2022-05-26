@@ -8,18 +8,21 @@
 %       `y0` - Value of the unknown point `x0` after interpolation
 
 function [y0] = lagrange(x, y, x0)
+    % Grab the dimensions
+    n = length(x);
+    
     % Initialize the result `y0`
     y0 = 0;
     
     % Calculate Lagrange's multiplier
-    L = ones(length(x), 1);
+    L = ones(n, 1);
     
     % Calculate Lagrange's polynomial
-    for i = 1 : length(x)
+    for i = 1 : n
         % Calculate the Lagrange multiplier
-        for j = 1 : length(x)
-          if(i != j)
-            L(i, :) = L(i, :) .* ((x0 - x(j)) / (x(i) - x(j)));
+        for k = 1 : n
+          if(i != k)
+            L(i, :) = L(i, :) .* ((x0 - x(k)) / (x(i) - x(k)));
           endif
         endfor
 

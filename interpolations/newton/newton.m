@@ -32,6 +32,7 @@ function [P] = newton(x, y)
           D(i, j) = (D(i, j - 1) - D(i - 1, j - 1)) / (x(i) - x(i - j + 1));
         endfor
     endfor
+    % D
 
     % Construct Newton's polynomial
     P = [];

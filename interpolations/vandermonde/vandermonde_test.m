@@ -6,6 +6,7 @@
 function [] = vandermonde_test()
     % Interpolation support (n = number of known points in the base)
     n = 15;
+    % n = 100;
     % n random points in the range [-10, 10] x [-10, 10]
     x = (rand(1, n) - 0.5) * 20;
     y = (rand(1, n) - 0.5) * 20;

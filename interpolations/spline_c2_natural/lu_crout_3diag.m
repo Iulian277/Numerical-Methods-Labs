@@ -7,7 +7,7 @@
 % [OUTPUT]
 %       `L` and `U` - Resulted matrices, such that L * U = A
 
-function [L U] = lu_crout_3_diag(d, a, c)
+function [L U] = lu_crout_3diag(d, a, c)
     % Grab the dimenstions
     n = length(a);
     
