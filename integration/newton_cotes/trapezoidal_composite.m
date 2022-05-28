@@ -16,5 +16,5 @@ function [aprox] = trapezoidal_composite(f, a, b, n)
     x = (a + h) : h : (b - h);
 
     % Apply the formula
-    aprox = h * ((f(a) + f(b)) / 2 + sum(f(x)));
+    aprox = h / 2 * (f(a) + f(b) + 2 * sum(f(x)));
 endfunction
