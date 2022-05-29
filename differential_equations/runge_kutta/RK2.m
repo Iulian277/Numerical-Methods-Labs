@@ -2,14 +2,14 @@
 %       This function is used for solving an ODE of first order,
 %       using the Runge-Kutta method of 2nd order.
 %       We can look at `t` as being the OX value and `y` the function (OY).
-% [INPUT] 
+% [INPUT]
 %       `f`     - dy/dt = f(t, y)
 %       `y0`    - Initial condition
 %       `a`     - Lower bound of the approximation interval
 %       `b`     - Upper bound of the approximation interval
 %       `n`     - Number of equidistant points (number of steps)
 % [OUTPUT]
-%       `y` - Approximated values of function `y` in the points from [a, b]
+%       `y`     - Approximated values of function `y` in the points from [a, b]
 
 function [y] = RK2(f, y0, a, b, n)
     % Initial condition
@@ -24,17 +24,11 @@ function [y] = RK2(f, y0, a, b, n)
     endfor
 
     % Succesive approximation of `y` function values
-    % based on the first 2 terms of Taylor series
-    for i = 1 : n
-        y(i + 1) = y(i) + h * f(t(i), y(i));
-    endfor
-    
-    % Succesive approximation of `y` function values
     for i = 1 : n
         K1 = h * f(t(i)    , y(i));
         K2 = h * f(t(i) + h, y(i) + K1);
 
         y(i + 1) = y(i) + (K1 + K2) / 2;
-    endfor	
-    
+    endfor
+
 endfunction
