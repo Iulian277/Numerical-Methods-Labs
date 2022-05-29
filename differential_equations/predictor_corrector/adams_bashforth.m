@@ -14,5 +14,6 @@
 %       `y_next`  - `Predicted` value of function `y` at next step
 
 function [y_next] = adams_bashforth(y_curr, h, f_n, f_n_1, f_n_2)
-  y_next = y_curr + h * (23/12 * f_n - 4/3 * f_n_1 + 5/12 * f_n_2);
+    y_next = y_curr + ...
+             h * (23/12 * f_n - 4/3 * f_n_1 + 5/12 * f_n_2);
 endfunction
