@@ -25,7 +25,8 @@ function [L U x] = cholesky(A, b)
         return;
     endif
   
-    % For each row
+    % Solve the coefficients of L matrix
+    % For each column
     for j = 1 : n
         % Compute the diagonal elements
         sum_of_row = L(j, 1 : (j - 1)) * L(j, 1 : (j - 1))';
