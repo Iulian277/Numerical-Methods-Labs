@@ -25,19 +25,19 @@ function [L U x] = cholesky(A, b)
         return;
     endif
   
-    % Solve the coefficients of L matrix
     % For each column
     for j = 1 : n
         % Compute the diagonal elements
         sum_of_row = L(j, 1 : (j - 1)) * L(j, 1 : (j - 1))';
         L(j, j) = sqrt(A(j, j) - sum_of_row);
-        % From the next column, up to the last column (on row)
+        % For each row on the `j`th column
         for i = (j + 1) : n
             sum_of_row = L(j, 1 : (j - 1)) * L(i, 1 : (j - 1))';
-            L(i, j) = (A(j, i) - sum_of_row) / L(j, j);
+            L(i, j) = (A(i, j) - sum_of_row) / L(j, j);
         endfor
     endfor
     
+    % Transpose matrix U
     U = L';
     
     % At this point, we have A = L * U = L * L'
