@@ -3,7 +3,7 @@
 %       to a given vector x and 2 indices k and l (column
 %       and line index in the vector - k should by 1)
 % [NOTE]
-%       This algorithm introduces a zero at the (k, l) index
+%       This algorithm introduces a zero at the (l, k) index
 %       and modifies only the (k, k) element
 % [EXAMPLE]
 %   x = [1 2 3 4 5]'
