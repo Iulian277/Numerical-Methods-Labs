@@ -2,7 +2,7 @@
 %       This function is used for solving a linear system (A * x = b),
 %       using the Jacobi iterative method.
 %       Returns the solution of the initial system (x)
-% [USES] 
+% [USES]
 %       utils/conv_test_jacobi.m
 
 function [x step] = jacobi(A, b, x0, tol, max_iter)
@@ -13,14 +13,14 @@ function [x step] = jacobi(A, b, x0, tol, max_iter)
         step = -1;
         return;
     endif
-    
+
     % Grab the dimensions
     [m n] = size(A);
-    
+
     % Set current approximation
     x_curr = x0;          % x_p
     x_next = zeros(n, 1); % x_{p+1}
-    
+
     % Iterate to the maximum number of iterations
     for step = 1 : max_iter
         % Iterate through every x_next(i)
@@ -28,22 +28,38 @@ function [x step] = jacobi(A, b, x0, tol, max_iter)
             % Compute the sum a_ij * xj_curr, j=1:n (except j=i)
             full_sum   = A(i, :) * x_curr(:);
             except_val = A(i, i) * x_curr(i);
-            
+
             % Compute x_{k+1}
             x_next(i) = b(i) - (full_sum - except_val);
             x_next(i) = x_next(i) / A(i, i);
         endfor
-        
+
         % Check if we reached the solution
         if norm(x_next - x_curr) < tol
             break;
         endif
-        
+
         % Update the last computed values with the new values
         x_curr = x_next;
     endfor
-    
+
+    % Alternative version to the above system-based solution
+    %
+    % N = diag(diag(A));
+    % P = N - A;
+    % Gj = inv(N) * P;
+    % inv_N = inv(N);
+    %
+    % for step = 1 : max_iter
+    %     x_next = Gj * x_curr + inv_N * b;
+    %
+    % if norm(x_next - x_curr) < tol
+    %     break;
+    % endif
+    %
+    % x_curr = x_next;
+
     % Return value
     x = x_next;
-        
+
 endfunction
