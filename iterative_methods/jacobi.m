@@ -54,10 +54,14 @@ function [x step] = jacobi(A, b, x0, tol, max_iter)
     %     x_next = Gj * x_curr + inv_N * b;
     %
     %     if norm(x_next - x_curr) < tol
+<<<<<<< HEAD
     %        break;
+=======
+    %         break;
+>>>>>>> de55ef91d6f3e7d66e5a3a4ef28e02238afafb96
     %     endif
     %
-    % x_curr = x_next;
+    %     x_curr = x_next;
 
     % Return value
     x = x_next;
